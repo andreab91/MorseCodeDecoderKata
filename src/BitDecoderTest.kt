@@ -30,5 +30,6 @@ class BitDecoderTest {
     @Test
     fun testCanDecodeSpaceBetweenWords() {
         assertEquals("   ", decoder.decode("00000"))
+        assertEquals(".   .-", decoder.decode("10000010111"))
     }
 }
