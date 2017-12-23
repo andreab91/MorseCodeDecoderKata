@@ -1,8 +1,13 @@
 class BitDecoder {
+    private val binaryDash = "111"
+    private val binaryDot = "1"
+    private val binarySpaceInsideChar = "0"
+
     fun decode(bits: String): String {
         return bits
-                .replace("111", morseFromBinary("111"))
-                .replace("1", morseFromBinary("1"))
+                .replace(binaryDash, morseFromBinary(binaryDash))
+                .replace(binaryDot, morseFromBinary(binaryDot))
+                .replace(binarySpaceInsideChar, morseFromBinary(binarySpaceInsideChar))
     }
 
     private fun morseFromBinary(value: String) = BINARY_CODE[value] ?: ""

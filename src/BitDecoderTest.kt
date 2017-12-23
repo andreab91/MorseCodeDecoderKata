@@ -14,4 +14,9 @@ class BitDecoderTest {
     fun testCanDecodeSingleDash() {
         assertEquals("-", decoder.decode("111"))
     }
+
+    @Test
+    fun testCanDecodeSpaceBetweenDotsAndDashesInCharacter() {
+        assertEquals("", decoder.decode("0"))
+    }
 }
