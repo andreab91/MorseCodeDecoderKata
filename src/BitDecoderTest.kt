@@ -18,10 +18,12 @@ class BitDecoderTest {
     @Test
     fun testCanDecodeSpaceBetweenDotsAndDashesInCharacter() {
         assertEquals("", decoder.decode("0"))
+        assertEquals("-.", decoder.decode("11101"))
     }
 
     @Test
     fun testCanDecodeSpaceBetweenCharactersInWord() {
         assertEquals(" ", decoder.decode("000"))
+        assertEquals(". -", decoder.decode("1000111"))
     }
 }
