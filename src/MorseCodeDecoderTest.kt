@@ -3,8 +3,15 @@ import org.junit.Test
 
 class MorseCodeDecoderTest {
 
+    private val decoder = MorseCodeDecoder()
+
     @Test
     fun testCanConvertSingleCharacter() {
-        assertEquals("A", MorseCodeDecoder().decode(".-"))
+        assertEquals("A", decoder.decode(".-"))
+    }
+
+    @Test
+    fun testCanConvertSingleWord() {
+        assertEquals("CIAO", decoder.decode("-.-. .. .- ---"))
     }
 }

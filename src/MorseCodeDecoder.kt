@@ -1,5 +1,11 @@
 class MorseCodeDecoder {
-    fun decode(morse: String): String {
-        return MORSE_CODE[morse].toString()
+    fun decode(morseCode: String): String {
+        return symbolsFrom(morseCode)
+                .map(this::toAscii)
+                .reduce { word, char -> word + char }
     }
+
+    private fun symbolsFrom(morseCode: String) = morseCode.split(" ")
+
+    private fun toAscii(morseSymbol: String) = MORSE_CODE[morseSymbol].toString()
 }
