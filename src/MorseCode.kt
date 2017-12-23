@@ -1,3 +1,8 @@
+internal val morseWordsSeparator = "   "
+internal val asciiWordsSeparator = " "
+internal val morseSymbolsSeparator = " "
+internal val asciiSymbolsSeparator = ""
+
 val MORSE_CODE = mapOf(
         "-.-.--" to "!",
         ".-..-." to "\"",

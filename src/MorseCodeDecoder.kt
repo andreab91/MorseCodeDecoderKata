@@ -1,15 +1,15 @@
 class MorseCodeDecoder {
     fun decode(morseCode: String): String {
-        return wordsFrom(morseCode).joinToString(" ", transform = this::decodeWord)
+        return wordsFrom(morseCode).joinToString(asciiWordsSeparator, transform = this::decodeWord)
     }
 
     private fun decodeWord(morseCode: String): String {
-        return symbolsFrom(morseCode).joinToString("", transform = this::decodeSymbol)
+        return symbolsFrom(morseCode).joinToString(asciiSymbolsSeparator, transform = this::decodeSymbol)
     }
 
-    private fun wordsFrom(morseCode: String) = morseCode.trim().split("   ")
+    private fun wordsFrom(morseCode: String) = morseCode.trim().split(morseWordsSeparator)
 
-    private fun symbolsFrom(morseCode: String) = morseCode.split(" ")
+    private fun symbolsFrom(morseCode: String) = morseCode.split(morseSymbolsSeparator)
 
-    private fun decodeSymbol(morseSymbol: String) = MORSE_CODE[morseSymbol] ?: ""
+    private fun decodeSymbol(morseSymbol: String) = MORSE_CODE[morseSymbol] ?: asciiSymbolsSeparator
 }
