@@ -7,5 +7,5 @@ class MorseCodeDecoder {
 
     private fun symbolsFrom(morseCode: String) = morseCode.split(" ")
 
-    private fun toAscii(morseSymbol: String) = MORSE_CODE[morseSymbol].toString()
+    private fun toAscii(morseSymbol: String) = MORSE_CODE[morseSymbol] ?: ""
 }

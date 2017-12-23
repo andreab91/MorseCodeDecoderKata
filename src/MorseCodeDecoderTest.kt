@@ -14,4 +14,10 @@ class MorseCodeDecoderTest {
     fun testCanConvertSingleWord() {
         assertEquals("CIAO", decoder.decode("-.-. .. .- ---"))
     }
+
+    @Test
+    fun testIgnoresWhiteSpacesBeforeAndAfterTheCode() {
+        assertEquals("CIAO", decoder.decode("   -.-. .. .- --- "))
+    }
+
 }
