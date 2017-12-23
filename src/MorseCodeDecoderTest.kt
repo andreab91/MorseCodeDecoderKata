@@ -20,4 +20,9 @@ class MorseCodeDecoderTest {
         assertEquals("CIAO", decoder.decode("   -.-. .. .- --- "))
     }
 
+    @Test
+    fun testCanConvertSentenceWithSpaces() {
+        assertEquals("HEY JUDE", decoder.decode(".... . -.--   .--- ..- -.. ."))
+    }
+
 }
