@@ -3,8 +3,15 @@ import org.junit.Test
 
 class BitDecoderTest {
 
+    private val decoder = BitDecoder()
+
     @Test
-    fun canDecodeSingleDot() {
-        assertEquals(".", BitDecoder().decode("1"))
+    fun testCanDecodeSingleDot() {
+        assertEquals(".", decoder.decode("1"))
+    }
+
+    @Test
+    fun testCanDecodeSingleDash() {
+        assertEquals("-", decoder.decode("111"))
     }
 }
