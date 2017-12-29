@@ -6,22 +6,23 @@ class BitDecoder {
     private val binarySpaceInSentence = "00000"
 
     fun decode(bits: String): String {
+        val bitRate = bitRateOf(bits)
         return bits
-                .replace(binaryDash, morseFromBinary(binaryDash))
-                .replace(binaryDot, morseFromBinary(binaryDot))
-                .replace(binarySpaceInSentence, morseFromBinary(binarySpaceInSentence))
-                .replace(binarySpaceInWord, morseFromBinary(binarySpaceInWord))
-                .replace(binarySpaceInChar, morseFromBinary(binarySpaceInChar))
+                .replace(binaryDash.repeat(bitRate), morseFromBinary(binaryDash))
+                .replace(binaryDot.repeat(bitRate), morseFromBinary(binaryDot))
+                .replace(binarySpaceInSentence.repeat(bitRate), morseFromBinary(binarySpaceInSentence))
+                .replace(binarySpaceInWord.repeat(bitRate), morseFromBinary(binarySpaceInWord))
+                .replace(binarySpaceInChar.repeat(bitRate), morseFromBinary(binarySpaceInChar))
     }
 
     fun bitRateOf(bits: String): Int {
         val pattern = Regex("$binaryDash+")
         return pattern.findAll(bits)
                 .map { it.value.countSubstring(binaryDash) }
-                .min() ?: 0
+                .min() ?: 1
     }
 
     private fun morseFromBinary(value: String) = BINARY_CODE[value] ?: ""
-
-    private fun String.countSubstring(sub: String): Int = this.split(sub).size - 1
 }
+
+private fun String.countSubstring(sub: String): Int = this.split(sub).size - 1
